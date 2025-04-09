@@ -1,0 +1,32 @@
+.NavBar {
+    background-color: #171717;
+    border-bottom: 1px solid #000000;
+}
+
+.NavLink {
+    display: flex !important;
+    align-items: center !important;
+    padding: 5px;
+    margin-right: 1rem;
+    display: 'flex';
+    align-items: 'center';
+    transition: 0.2s;
+    color: #ea5722 !important;
+}
+
+.NavLink:hover {
+    color: #fff !important;
+    transition: 0.2s ease-in-out;
+}
+
+.DiscoverBtn {
+    font-weight: bold;
+    background-color: #ea5722;
+    border: none;
+}
+
+.DiscoverBtn:hover {
+    background-color: #fff;
+    color: #ea5722;
+    transition: 0.2s ease-in-out;
+}
