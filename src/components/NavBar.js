@@ -1,5 +1,6 @@
 // React
 import React from "react";
+import { NavLink } from "react-router-dom";
 
 // Assets
 import logo from "../assets/inspyre_logo.png";
@@ -13,7 +14,6 @@ import Nav from "react-bootstrap/Nav";
 // CSS
 import styles from "../styles/NavBar.module.css";
 
-
 const NavBar = () => {
   return (
     <Navbar
@@ -24,26 +24,29 @@ const NavBar = () => {
       variant="dark"
     >
       <Container>
-        {/* Logo */}
-        <Navbar.Brand>
-          <img src={logo} alt="logo" height="80" />
-        </Navbar.Brand>
 
+        {/* Logo */}
+        <NavLink to="/">
+          <Navbar.Brand>
+            <img src={logo} alt="logo" height="80" />
+          </Navbar.Brand>
+        </NavLink>
+        
         {/* Navbar Toggle */}
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
 
-        {/* Navbar Links */}
+          {/* Navbar Links */}
           <Nav className="ml-auto text-left">
-            <Nav.Link className={styles.NavLink}>
-              <Button className={styles.DiscoverBtn}>Discover</Button>
-            </Nav.Link>
-            <Nav.Link className={styles.NavLink}>
+            <NavLink className={styles.NavLink} to="/inspyre">
+              <Button className={styles.DiscoverBtn}>Inspyre +</Button>
+            </NavLink>
+            <NavLink className={styles.NavLink} to="/signin">
               Sign in
-            </Nav.Link>
-            <Nav.Link className={styles.NavLink}>
+            </NavLink>
+            <NavLink className={styles.NavLink} to="/signup">
               Sign up
-            </Nav.Link>
+            </NavLink>
           </Nav>
         </Navbar.Collapse>
       </Container>
