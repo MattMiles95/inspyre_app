@@ -20,6 +20,8 @@ const NavBar = () => {
       className={styles.NavBar}
       expand="md"
       fixed="top"
+      bg="dark"
+      variant="dark"
     >
       <Container>
         {/* Logo */}
