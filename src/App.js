@@ -1,3 +1,6 @@
+// API
+import "./api/axiosDefaults";
+
 // Bootstrap Components
 import Container from "react-bootstrap/Container";
 
