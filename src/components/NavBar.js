@@ -13,6 +13,7 @@ import Nav from "react-bootstrap/Nav";
 
 // CSS
 import styles from "../styles/NavBar.module.css";
+import btnStyles from "../styles/Buttons.module.css";
 
 const NavBar = () => {
   return (
@@ -39,7 +40,7 @@ const NavBar = () => {
           {/* Navbar Links */}
           <Nav className="ml-auto text-left">
             <NavLink className={styles.NavLink} to="/inspyre">
-              <Button className={styles.DiscoverBtn}>Inspyre +</Button>
+              <Button className={btnStyles.Btn}>Inspyre +</Button>
             </NavLink>
             <NavLink className={styles.NavLink} to="/signin">
               Sign in

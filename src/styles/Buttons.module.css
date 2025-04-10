@@ -1,0 +1,25 @@
+.AuthBtn {
+  display: block;
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+}
+
+.Btn {
+  font-weight: bold;
+  background: linear-gradient(to right, #ffa245, #88300f) !important;
+  border: none;
+}
+
+.Btn:hover {
+  background: linear-gradient(to right, #fff, #fff) !important;
+  color: #ea5722 !important;
+  box-shadow: none !important;
+  text-shadow: #fff 0px 0px 5px;
+  transition: 0.2s ease-in-out;
+}
+
+.Btn:active, .Btn:focus {
+  box-shadow: none !important;
+}

@@ -23,25 +23,3 @@
     color: #fff !important;
     transition: 0.2s ease-in-out;
 }
-
-.DiscoverBtn {
-    font-weight: bold;
-    background-color: #ea5722 !important;
-    border: none;
-}
-
-.DiscoverBtn:hover {
-    background-color: #fff !important;
-    color: #ea5722 !important;
-    box-shadow: none !important;
-    transition: 0.2s ease-in-out;
-}
-
-.DiscoverBtn:active, .DiscoverBtn:focus {
-    background-color: #fff !important;
-    color: #ea5722 !important;
-    transition: 0.2s ease-in-out;
-    border-color: #ea5722 !important;
-    box-shadow: none !important;
-    transition: 0.2s ease-in-out;
-}
