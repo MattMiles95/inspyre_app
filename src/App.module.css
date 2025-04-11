@@ -17,8 +17,8 @@
 }
 
 .FillerImage {
-  object-fit:contain;
-  width: 100%;
+  object-fit: contain;
+  width: 80%;
 }
 
 .Image {

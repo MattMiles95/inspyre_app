@@ -60,7 +60,7 @@ const SignUpForm = () => {
           md={6}
           className={`${styles.SignUpCol}my-auto d-none d-md-block h-100`}
         >
-          <Image className={`w-100 h-100 ${appStyles.FillerImage}`} src={signupHero} />
+          <Image className={appStyles.FillerImage} src={signupHero} />
         </Col>
         <Col className="pl-0 my-auto md-2" md={6}>
           <Container className={`${appStyles.SignUpForm} p-4 `}>
@@ -131,7 +131,7 @@ const SignUpForm = () => {
               ))}
             </Form>
           </Container>
-          <div className="mt-3 text-center">
+          <div className="m-4 text-center">
             Already a member?{" "}
             <Link className={styles.AuthLink} to="/signin">
               Sign in

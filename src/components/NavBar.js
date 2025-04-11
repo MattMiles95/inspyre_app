@@ -25,27 +25,37 @@ const NavBar = () => {
       variant="dark"
     >
       <Container>
-
         {/* Logo */}
         <NavLink to="/">
           <Navbar.Brand>
-            <img src={logo} alt="logo" height="80" />
+            <img src={logo} alt="logo" height="75" />
           </Navbar.Brand>
         </NavLink>
-        
+
         {/* Navbar Toggle */}
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-
           {/* Navbar Links */}
           <Nav className="ml-auto text-left">
             <NavLink className={styles.NavLink} to="/inspyre">
               <Button className={btnStyles.Btn}>Inspyre +</Button>
             </NavLink>
-            <NavLink className={styles.NavLink} to="/signin">
+            <NavLink
+
+              className={({ isActive }) =>
+                `${styles.NavLink} ${isActive ? styles.Active : ""}`
+              }
+              to="/signin"
+            >
               Sign in
             </NavLink>
-            <NavLink className={styles.NavLink} to="/signup">
+            <NavLink
+              exact
+              className={({ isActive }) =>
+                `${styles.NavLink} ${isActive ? styles.Active : ""}`
+              }
+              to="/signup"
+            >
               Sign up
             </NavLink>
           </Nav>
