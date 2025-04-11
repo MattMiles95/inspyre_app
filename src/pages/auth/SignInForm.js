@@ -24,31 +24,28 @@ import styles from "../../styles/SignInUpForm.module.css";
 // React Router
 import { Link, useNavigate } from "react-router-dom";
 
-const SignUpForm = () => {
-  const [signUpData, setSignUpData] = useState({
+const SignInForm = () => {
+  const [signInData, setSignInData] = useState({
     username: "",
-    password1: "",
-    password2: "",
+    password: "",
   });
-  const { username, password1, password2 } = signUpData;
-
+  const { username, password } = signInData;
   const [errors, setErrors] = useState({});
-
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("/dj-rest-auth/registration/", signUpData);
-      navigate("/signin");
+      await axios.post("/dj-rest-auth/login/", signInData);
+      navigate("/");
     } catch (err) {
       setErrors(err.response?.data);
     }
   };
 
   const handleChange = (e) => {
-    setSignUpData({
-      ...signUpData,
+    setSignInData({
+      ...signInData,
       [e.target.name]: e.target.value,
     });
   };
@@ -56,21 +53,11 @@ const SignUpForm = () => {
   return (
     <Container className="d-flex justify-content-center align-items-center">
       <Row className={`${styles.Row} no-gutters`}>
-        <Col
-          md={6}
-          className={`${styles.SignUpCol}my-auto d-none d-md-block h-100`}
-        >
-          <Image className={appStyles.FillerImage} src={signupHero} />
-        </Col>
         <Col className="pl-0 my-auto md-2" md={6}>
-          <Container className="p-4">
-            <h1 className={styles.Header}>Become Inspyred</h1>
-            <div className={`${styles.HeaderText} text-center`}>
-              <span>Join our community of creators today.</span>
-              <p>
-                Draw. Write. Share.{" "}
-                <span className={appStyles.InspyredText}>Inspyre</span>
-              </p>
+          <Container className={`${appStyles.SignInForm} p-4 `}>
+            <h1 className={styles.Header}>Get Creating</h1>
+            <div className={`${styles.HeaderText} text-center mb-3`}>
+              <span>Find your spark, or ignite someone else's...</span>
             </div>
 
             <Form onSubmit={handleSubmit}>
@@ -91,35 +78,18 @@ const SignUpForm = () => {
                 </Alert>
               ))}
 
-              <Form.Group controlId="password1">
+              <Form.Group controlId="password">
                 <Form.Label className="d-none">Password</Form.Label>
                 <Form.Control
                   className={styles.Input}
                   type="password"
                   placeholder="Password"
-                  name="password1"
-                  value={password1}
+                  name="password"
+                  value={password}
                   onChange={handleChange}
                 />
               </Form.Group>
-              {errors.password1?.map((message, idx) => (
-                <Alert variant="warning" key={idx}>
-                  {message}
-                </Alert>
-              ))}
-
-              <Form.Group controlId="password2">
-                <Form.Label className="d-none">Confirm password</Form.Label>
-                <Form.Control
-                  className={styles.Input}
-                  type="password"
-                  placeholder="Confirm password"
-                  name="password2"
-                  value={password2}
-                  onChange={handleChange}
-                />
-              </Form.Group>
-              {errors.password2?.map((message, idx) => (
+              {errors.password?.map((message, idx) => (
                 <Alert variant="warning" key={idx}>
                   {message}
                 </Alert>
@@ -129,7 +99,7 @@ const SignUpForm = () => {
                 className={`${btnStyles.AuthBtn} ${btnStyles.Btn}`}
                 type="submit"
               >
-                Create
+                Login
               </Button>
               {errors.non_field_errors?.map((message, idx) => (
                 <Alert variant="warning" key={idx}>
@@ -139,15 +109,21 @@ const SignUpForm = () => {
             </Form>
           </Container>
           <div className="m-4 text-center">
-            Already a member?{" "}
+            Not a member yet?{" "}
             <Link className={styles.AuthLink} to="/signin">
-              Login
+              Join the community
             </Link>
           </div>
+        </Col>
+        <Col
+          md={6}
+          className={`${styles.SignUpCol}my-auto d-none d-md-block h-100`}
+        >
+          <Image className={appStyles.FillerImage} src={signupHero} />
         </Col>
       </Row>
     </Container>
   );
 };
 
-export default SignUpForm;
+export default SignInForm;

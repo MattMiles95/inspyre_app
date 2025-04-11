@@ -9,6 +9,7 @@ import styles from "./App.module.css";
 
 // Local Components
 import NavBar from './components/NavBar';
+import SignInForm from "./pages/auth/SignInForm";
 import SignUpForm from "./pages/auth/SignUpForm";
 
 // React Router
@@ -23,7 +24,7 @@ function App() {
         <Routes>
           <Route path="/" element={<h1>Home</h1>} />
           <Route path="/inspyre" element={<h1>Inspyre</h1>} />
-          <Route path="/signin" element={<h1>Sign In</h1>} />
+          <Route path="/signin" element={<SignInForm />} />
           <Route path="/signup" element={<SignUpForm />} />
         </Routes>
       </Container>

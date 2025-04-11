@@ -27,14 +27,28 @@
 .Header {
   font-style: normal;
   font-weight: bold;
-  font-size: 18px;
-  line-height: 19px;
+  font-size: 22px;
+  line-height: 28px;
   text-align: center;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: #ff9532;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
+  background-color: #ff9532;
+  background-image: linear-gradient(to right, #ffba7a, #b85900);
+  background-size: 100%;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
 }
+
+.HeaderText {
+  color: #ffebd8;
+  font-size: 14px;
+  line-height: 24px;
+}
+
 
 .AuthLink {
   color: #ea5722 !important;
@@ -53,3 +67,5 @@
 .Container {
   padding: 30px 10px;
 }
+
+

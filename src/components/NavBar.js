@@ -57,7 +57,7 @@ const NavBar = () => {
               }
               to="/signin"
             >
-              Sign in
+              Login
             </NavLink>
             <NavLink
               exact
@@ -66,7 +66,7 @@ const NavBar = () => {
               }
               to="/signup"
             >
-              Sign up
+              Join
             </NavLink>
           </Nav>
         </Navbar.Collapse>

@@ -67,6 +67,11 @@ figure {
   display: inline-block;
 }
 
+.InspyredText {
+  color: #ff9532;
+  font-weight: bold;
+}
+
 /* scrollbar */
 *::-webkit-scrollbar {
   width: 5px;
