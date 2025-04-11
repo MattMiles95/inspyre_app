@@ -15,7 +15,7 @@ import Nav from "react-bootstrap/Nav";
 import styles from "../styles/NavBar.module.css";
 import btnStyles from "../styles/Buttons.module.css";
 
-// Local Components
+// Hooks
 import UseClickOutsideToggle from "../hooks/UseClickOutsideToggle";
 
 const NavBar = () => {
