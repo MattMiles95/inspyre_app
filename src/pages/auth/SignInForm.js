@@ -5,7 +5,7 @@ import React, { useState } from "react";
 import axios from "axios";
 
 // Assets
-import signupHero from "../../assets/signup_hero.png";
+import signInHero from "../../assets/signin_hero.png";
 
 // Context
 import { useSetCurrentUser } from "../../contexts/CurrentUserContext";
@@ -128,7 +128,7 @@ const SignInForm = () => {
           md={6}
           className={`${styles.SignUpCol}my-auto d-none d-md-block h-100`}
         >
-          <Image className={appStyles.FillerImage} src={signupHero} />
+          <Image className={appStyles.FillerImage} src={signInHero} />
         </Col>
       </Row>
     </Container>

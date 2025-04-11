@@ -20,6 +20,7 @@
   transition: 0.2s ease-in-out;
 }
 
-.Btn:active, .Btn:focus {
+.Btn:active,
+.Btn:focus {
   box-shadow: none !important;
 }
