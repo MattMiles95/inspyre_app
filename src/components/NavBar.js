@@ -2,6 +2,9 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 
+// API
+import axios from "axios";
+
 // Assets
 import logo from "../assets/inspyre_logo.png";
 
@@ -14,6 +17,7 @@ import Nav from "react-bootstrap/Nav";
 // Context
 import {
   useCurrentUser,
+  useSetCurrentUser,
 } from "../contexts/CurrentUserContext";
 
 // CSS
@@ -23,16 +27,35 @@ import btnStyles from "../styles/Buttons.module.css";
 // Hooks
 import UseClickOutsideToggle from "../hooks/UseClickOutsideToggle";
 
+// Utils
+import { removeTokenTimestamp } from "../utils/utils";
+
 const NavBar = () => {
   const currentUser = useCurrentUser();
+  const setCurrentUser = useSetCurrentUser();
 
   const { expanded, setExpanded, ref } = UseClickOutsideToggle();
+
+  const handleSignOut = async () => {
+    try {
+      await axios.post("/dj-rest-auth/logout/");
+      setCurrentUser(null);
+      removeTokenTimestamp();
+    } catch (err) {
+      // console.log(err);
+    }
+  };
 
   const loggedInNavbar = (
     <>
       {/* ADD POST */}
       <NavLink className={styles.NavLink} to="/inspyre">
         <Button className={btnStyles.Btn}>Inspyre +</Button>
+      </NavLink>
+
+      {/* SIGN OUT */}
+      <NavLink className={styles.NavLink} to="/" onClick={handleSignOut}>
+        Logout
       </NavLink>
     </>
   );
