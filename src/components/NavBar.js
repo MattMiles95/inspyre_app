@@ -15,10 +15,16 @@ import Nav from "react-bootstrap/Nav";
 import styles from "../styles/NavBar.module.css";
 import btnStyles from "../styles/Buttons.module.css";
 
+// Local Components
+import UseClickOutsideToggle from "../hooks/UseClickOutsideToggle";
+
 const NavBar = () => {
+  const { expanded, setExpanded, ref } = UseClickOutsideToggle();
+
   return (
     <Navbar
       className={styles.NavBar}
+      expanded={expanded}
       expand="md"
       fixed="top"
       bg="dark"
@@ -33,7 +39,11 @@ const NavBar = () => {
         </NavLink>
 
         {/* Navbar Toggle */}
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Toggle
+          ref={ref}
+          onClick={() => setExpanded(!expanded)}
+          aria-controls="basic-navbar-nav"
+        />
         <Navbar.Collapse id="basic-navbar-nav">
           {/* Navbar Links */}
           <Nav className="ml-auto text-left">
