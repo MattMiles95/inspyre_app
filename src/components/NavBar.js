@@ -11,6 +11,11 @@ import Container from "react-bootstrap/Container";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 
+// Context
+import {
+  useCurrentUser,
+} from "../contexts/CurrentUserContext";
+
 // CSS
 import styles from "../styles/NavBar.module.css";
 import btnStyles from "../styles/Buttons.module.css";
@@ -19,7 +24,43 @@ import btnStyles from "../styles/Buttons.module.css";
 import UseClickOutsideToggle from "../hooks/UseClickOutsideToggle";
 
 const NavBar = () => {
+  const currentUser = useCurrentUser();
+
   const { expanded, setExpanded, ref } = UseClickOutsideToggle();
+
+  const loggedInNavbar = (
+    <>
+      {/* ADD POST */}
+      <NavLink className={styles.NavLink} to="/inspyre">
+        <Button className={btnStyles.Btn}>Inspyre +</Button>
+      </NavLink>
+    </>
+  );
+
+  const loggedOutNavbar = (
+    <>
+      {/* SIGN IN */}
+      <NavLink
+        className={({ isActive }) =>
+          `${styles.NavLink} ${isActive ? styles.Active : ""}`
+        }
+        to="/signin"
+      >
+        Login
+      </NavLink>
+
+      {/* SIGN UP */}
+      <NavLink
+        exact
+        className={({ isActive }) =>
+          `${styles.NavLink} ${isActive ? styles.Active : ""}`
+        }
+        to="/signup"
+      >
+        Join
+      </NavLink>
+    </>
+  );
 
   return (
     <Navbar
@@ -44,30 +85,19 @@ const NavBar = () => {
           onClick={() => setExpanded(!expanded)}
           aria-controls="basic-navbar-nav"
         />
-        <Navbar.Collapse id="basic-navbar-nav">
-          {/* Navbar Links */}
+        <Navbar.Collapse id="basic-navbar-nav" className="pt-3">
           <Nav className="ml-auto text-left">
-            <NavLink className={styles.NavLink} to="/inspyre">
-              <Button className={btnStyles.Btn}>Inspyre +</Button>
-            </NavLink>
+            {/* Discover */}
             <NavLink
-
               className={({ isActive }) =>
-                `${styles.NavLink} ${isActive ? styles.Active : ""}`
+                `${styles.Discover} ${isActive ? styles.Active : ""}`
               }
-              to="/signin"
+              to="/"
             >
-              Login
+              Discover
             </NavLink>
-            <NavLink
-              exact
-              className={({ isActive }) =>
-                `${styles.NavLink} ${isActive ? styles.Active : ""}`
-              }
-              to="/signup"
-            >
-              Join
-            </NavLink>
+            <span className={`${styles.Divider} pr-3`}>|</span>
+            {currentUser ? loggedInNavbar : loggedOutNavbar}
           </Nav>
         </Navbar.Collapse>
       </Container>

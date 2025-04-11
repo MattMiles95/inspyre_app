@@ -14,6 +14,19 @@
     color: #ea5722 !important;
 }
 
+.Discover {
+    display: flex !important;
+    align-items: center !important;
+    padding: 5px;
+    margin-right: 1rem;
+    display: 'flex';
+    align-items: 'center';
+    transition: 0.2s;
+    font-weight:900;
+    text-transform: uppercase;
+    color: #ff7b00 !important;
+}
+
 .NavLink:hover {
     color: #fff !important;
     transition: 0.2s ease-in-out;
@@ -22,4 +35,9 @@
 .Active, .NavLink:focus {
     color: #fff !important;
     transition: 0.1s ease-in-out;
+}
+
+.Divider {
+    font-size: 22px;
+    color: #ffebd8;
 }

@@ -22,7 +22,7 @@ function App() {
       <NavBar />
       <Container className={styles.Main}>
         <Routes>
-          <Route path="/" element={<h1>Home</h1>} />
+          <Route path="/" element={<h1>Discover</h1>} />
           <Route path="/inspyre" element={<h1>Inspyre</h1>} />
           <Route path="/signin" element={<SignInForm />} />
           <Route path="/signup" element={<SignUpForm />} />

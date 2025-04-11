@@ -1,6 +1,9 @@
 // React
 import React from "react";
 
+// Context
+import { CurrentUserProvider } from "./contexts/CurrentUserContext";
+
 // CSS
 import "./index.css";
 
@@ -16,7 +19,9 @@ import { BrowserRouter as Router } from "react-router-dom";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <Router>
-    <App />
+    <CurrentUserProvider>
+      <App />
+    </CurrentUserProvider>
   </Router>
 );
 

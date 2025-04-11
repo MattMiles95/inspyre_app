@@ -7,6 +7,9 @@ import axios from "axios";
 // Assets
 import signupHero from "../../assets/signup_hero.png";
 
+// Context
+import { useSetCurrentUser } from "../../contexts/CurrentUserContext";
+
 // Bootstrap Components
 import Alert from "react-bootstrap/Alert";
 import Button from "react-bootstrap/Button";
@@ -25,6 +28,7 @@ import styles from "../../styles/SignInUpForm.module.css";
 import { Link, useNavigate } from "react-router-dom";
 
 const SignInForm = () => {
+  const setCurrentUser = useSetCurrentUser();
   const [signInData, setSignInData] = useState({
     username: "",
     password: "",
@@ -36,7 +40,8 @@ const SignInForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("/dj-rest-auth/login/", signInData);
+      const { data } = await axios.post("/dj-rest-auth/login/", signInData);
+      setCurrentUser(data.user);
       navigate("/");
     } catch (err) {
       setErrors(err.response?.data);
